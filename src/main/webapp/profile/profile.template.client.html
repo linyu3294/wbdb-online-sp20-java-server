@@ -8,6 +8,7 @@
 </head>
 
 	<body>
+		
 		<div class="row-6">
 			<div class="col-3  container-fluid">
 				<h1>Profile</h1>
@@ -16,25 +17,38 @@
 		
 		<div class="row-6">
 			<div class="col-3 container-fluid">
-				Username<input type="text" class="form-control"/>
+				<label for="username">Username</label>
+				<input type="text" id="username" class="form-control" placeholder="Username"/>
 			</div>
 			<div class="col-3 container-fluid">
-				Password<input type="password" class="form-control"/>
+				<label for="password">Password</label>
+				<input type="password" id="password" class="form-control" placeholder="Password"/>
 			</div>
 			<div class="col-3 container-fluid">
-				DOB<input type="date" class="form-control">
+				<label for="dob">DOB</label>
+				<input type="date" id="dob" class="form-control" placeholder="MM/DD/YYYY">
 			</div>
 			<div class="col-3 container-fluid">
-				Role<select class="form-control">
-					<option>Student</option>
-					<option>Faculty</option>
+				<label for="role">Role</label>
+				<select id="role" class="form-control" placeholder="Select">
+					<option value="NONE">
+						Select
+					</option>
+					<option value="STUDENT">
+						Student
+					</option>
+					<option value="FACULTY">
+						Faculty
+					</option>
 				</select>
 			</div>
 			<div class="col-3 container-fluid">
-				Email<input type="email" class="form-control"/>
+				<label for="email">Email</label>
+				<input type="email" id="email" class="form-control" placeholder="xyz@gmail.com"/>
 			</div>
 			<div class="col-3 container-fluid">
-				Salary<input type="number" class = "form-control">
+				<label for="salary">Salary</label>
+				<input type="number" id="salary" class = "form-control" placeholder="$$$$$$">
 			</div>
 		</div>
 	</body>
