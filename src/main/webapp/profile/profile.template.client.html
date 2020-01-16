@@ -3,27 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Profile</title>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	      rel="stylesheet"/>
 </head>
 
 	<body>
-		<h1>Profile</h1>
-		<div>
-			Username<input type="text"/>
+		<div class="row-6">
+			<div class="col-3  container-fluid">
+				<h1>Profile</h1>
+			</div>
 		</div>
-		<div>
-			Password<input type="password"/>
-		</div>
-		<div>
-			DOB<input type="date">
-		</div>
-		<div>
-			Role<input type="text">
-		</div>
-		<div>
-			Email<input type="email"/>
-		</div>
-		<div>
-			Salary<input type="number">
+		
+		<div class="row-6">
+			<div class="col-3 container-fluid">
+				Username<input type="text" class="form-control"/>
+			</div>
+			<div class="col-3 container-fluid">
+				Password<input type="password" class="form-control"/>
+			</div>
+			<div class="col-3 container-fluid">
+				DOB<input type="date" class="form-control">
+			</div>
+			<div class="col-3 container-fluid">
+				Role<select class="form-control">
+					<option>Student</option>
+					<option>Faculty</option>
+				</select>
+			</div>
+			<div class="col-3 container-fluid">
+				Email<input type="email" class="form-control"/>
+			</div>
+			<div class="col-3 container-fluid">
+				Salary<input type="number" class = "form-control">
+			</div>
 		</div>
 	</body>
 </html>
