@@ -9,47 +9,87 @@
 
 	<body>
 		
-		<div class="row-6">
-			<div class="col-3  container-fluid">
+		<div class="container">
+			<div>
 				<h1>Profile</h1>
 			</div>
-		</div>
-		
-		<div class="row-6">
-			<div class="col-3 container-fluid">
-				<label for="username">Username</label>
-				<input type="text" id="username" class="form-control" placeholder="Username"/>
+			
+			<div class="form-group row">
+				<label for="username" class="col-sm-2 col-form-label">Username</label>
+				<div class="col-sm-10">
+					<input type="text"
+					       id="username"
+					       title="Please type your username."
+					       class="form-control"
+					       placeholder="ex. Gabeman123!">
+				</div>
 			</div>
-			<div class="col-3 container-fluid">
-				<label for="password">Password</label>
-				<input type="password" id="password" class="form-control" placeholder="Password"/>
+			
+			<div class="form-group row">
+				<label for="password" class="col-sm-2 col-form-label">Password</label>
+				<div class="col-sm-10">
+					<input type="password"
+					       id="password"
+					       title="Please type your password."
+					       class="form-control"
+					       placeholder="********">
+				</div>
 			</div>
-			<div class="col-3 container-fluid">
-				<label for="dob">DOB</label>
-				<input type="date" id="dob" class="form-control" placeholder="MM/DD/YYYY">
+			
+			<div class="form-group row">
+				<label for="dob" class="col-sm-2 col-form-label">DOB</label>
+				<div class="col-sm-10">
+					<input type="date"
+					       id="dob"
+					       title="Please type your date of birth."
+					       class="form-control"
+					       placeholder="MM/DD/YYYY">
+				</div>
 			</div>
-			<div class="col-3 container-fluid">
-				<label for="role">Role</label>
-				<select id="role" class="form-control" placeholder="Select">
-					<option value="NONE">
-						Select
-					</option>
-					<option value="STUDENT">
-						Student
-					</option>
-					<option value="FACULTY">
-						Faculty
-					</option>
-				</select>
+			
+			<div class="form-group row">
+				<label for="role" class="col-sm-2 col-form-label">Role</label>
+				<div class="col-sm-10">
+					<select id="role"
+					        title="Please select your role."
+					        class="form-control"
+					        placeholder="Select">
+						<option value="NONE">
+							Select
+						</option>
+						<option value="STUDENT">
+							Student
+						</option>
+						<option value="FACULTY">
+							Faculty
+						</option>
+					</select>
+				</div>
 			</div>
-			<div class="col-3 container-fluid">
-				<label for="email">Email</label>
-				<input type="email" id="email" class="form-control" placeholder="xyz@gmail.com"/>
+			
+			<div class="form-group row">
+				<label for="email" class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-10">
+					<input type="email"
+					       id="email"
+					       title="Please type your email."
+					       class="form-control"
+					       placeholder="xyz@email.com">
+				</div>
 			</div>
-			<div class="col-3 container-fluid">
-				<label for="salary">Salary</label>
-				<input type="number" id="salary" class = "form-control" placeholder="$$$$$$">
+			
+			<div class="form-group row">
+				<label for="salary" class="col-sm-2 col-form-label">Salary</label>
+				<div class="col-sm-10">
+					<input type="number"
+					       id="salary"
+					       title="Please type your salary."
+					       class="form-control"
+					       placeholder="100000">
+				</div>
 			</div>
+			
+			
 		</div>
 	</body>
 </html>
