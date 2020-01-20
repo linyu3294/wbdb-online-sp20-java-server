@@ -1,3 +1,4 @@
+
 #header_bar{
     background-color: royalblue;
     height: 50px;
@@ -5,14 +6,4 @@
 #column_bar{
     background-color: lightgrey;
     height: 50px;
-}
-
-.scrollbar {
-    width: 1000px;
-    background: #fff;
-    overflow-y: scroll;
-}
-
-.force-overflow {
-    min-height: 450px;
 }
