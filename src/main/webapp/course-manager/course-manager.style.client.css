@@ -8,7 +8,6 @@
 }
 
 .scrollbar {
-    height: 300px;
     width: 1000px;
     background: #fff;
     overflow-y: scroll;
