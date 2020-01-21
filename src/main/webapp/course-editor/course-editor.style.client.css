@@ -1,20 +1,19 @@
-h1 {
-    color: white;
-    background-gound:blue;
+
+h1{color:white}
+h2{color:white}
+h3{color:white}
+
+#header_bar{background-color: grey}
+
+#side_menu {
+    background-color: lightgrey;
+    height:max-content;
 }
-h2 {
-    color: yellow;
-    background-color: blue;
+
+.wbdv-close{
+    width:200px;
+    height:40px;
+    font-size:40px;
 }
-#wbdv-modle-list {
-    background-color: cyan;
-}
-.wbdv-module {
-    background-color: lightgray;
-}
-.wbdv-bold {
-    font-weight: bold;
-}
-.wbdv-bold.wbdv-selected {
-    background-color: chartreuse;
-}
+
+

@@ -1,9 +1,19 @@
 
-#header_bar{
-    background-color: royalblue;
-    height: 50px;
+#header_bar
+    position: ab;
+    left:0px;
+    top:0px;
 }
+
+#column_bar{
+    background-color: blue;
+}
+
 #column_bar{
     background-color: lightgrey;
-    height: 50px;
+
+}
+
+#main_content{
+    margin-top: 50px;
 }
