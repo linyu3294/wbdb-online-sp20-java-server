@@ -1,7 +1,12 @@
 
-h1{color:white}
-h2{color:white}
-h3{color:white}
+h1{color:white;}
+h2{color:white;
+    text-align: center;}
+
+h3{position: relative;
+    color:white;
+    top:10px;
+    left:17px;}
 
 #header_bar{background-color: grey}
 
@@ -12,8 +17,38 @@ h3{color:white}
 
 .wbdv-close{
     width:200px;
-    height:40px;
+    height:30px;
+
     font-size:40px;
 }
 
 
+.wbdv-module-item-delete-btn {
+    position: relative;
+    right: 20px;
+    bottom: -15px;
+    width:200px;
+    height:40px;
+    font-size:20px;
+}
+
+.wbdv-topic-add-btn {
+    position: relative;
+    bottom:-8px;
+    left:30px;
+    font-size:20px;
+}
+
+
+.wbdv-new-page-btn {
+    position: relative;
+    bottom:-10px;
+    left:30px;
+    font-size:20px;
+}
+
+.wbdv-module-item-add-btn {
+    position: relative;
+    right: -40px;
+    font-size:30px;
+}

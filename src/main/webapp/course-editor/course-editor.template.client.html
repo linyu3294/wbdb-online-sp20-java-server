@@ -7,7 +7,7 @@
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
           rel="stylesheet"/>
     <link   href="course-editor.style.client.css"
             rel="stylesheet"/>
@@ -22,7 +22,7 @@
                         <div class="col-2">
                         <i class="wbdv-course-editor wbdv-close fa fa-times-rectangle"></i>
                         </div>
-                        <div id="title" class="col-10">
+                        <div id="title" class="col-10 wbdv-course-title">
                         <h2>CS5610-WebDev</h2>
                         </div>
                     </div>
@@ -38,8 +38,8 @@
                     </div>
         
                     <div class="col-sm-1.5">
-                        <li class=" wbdv-page-tab nav-item">
-                            <a class="nav-link active" href="#">
+                        <li class="wbdv-page-tab nav-item">
+                            <a class="nav-link" href="#">
                                 Pages
                             </a>
                         </li>
@@ -47,7 +47,7 @@
         
                     <div class="col-sm-1.5">
                         <li class="wbdv-page-tab nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link active" href="#">
                                 Theme
                             </a>
                         </li>
@@ -74,6 +74,14 @@
                             </a>
                         </li>
                     </div>
+                    <div class="col-sm-1.5">
+                        <li class="wbdv-page-tab nav-item">
+                            <a class="nav-link" href="#">
+                                Setting
+                            </a>
+                        </li>
+                    </div>
+                    <i class="wbdv-new-page-btn fa fa-plus"></i>
             </ul>
            
             </div>
@@ -84,21 +92,102 @@
         <div class="row">
             
             <div id="side_menu" class="col-3">
-                <h2 id="wbdv-module-item-title wbdv-module-list">Module list</h2>
-                <ul class="wbdv-module-list list-group nav nav-tabs">
-                    <li class="wbdv-module-item list-group-item">Module 1 - jQuery</li>
-                    <li class="wbdv-module-item list-group-item active">Module 2 - React</li>
-                    <li class="wbdv-module-item list-group-item">Module 3 - Redux</li>
-                    <li class="wbdv-module-item list-group-item">Module 4 - Native</li>
-                    <li class="wbdv-module-item list-group-item">Module 5 - Angular</li>
-                    <li class="wbdv-module-item list-group-item">Module 6 - Node</li>
-                    <li class="wbdv-module-item list-group-item">Module 7 - Mongo</li>
+                <div class="container">
+                    <br>
+                    <h3 id="wbdv-module-item-title wbdv-module-list">Module list</h3>
+                    <br>
+                </div>
+                    <ul class="wbdv-module-list list-group nav nav-tabs">
+                    
+                        <div class="container row">
+                            <div class="col-10">
+                            <li class="wbdv-module-item list-group-item">
+                                Module 1 - jQuery
+                            </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                             </div>
+                        </div>
+                        <br>
+                        <div class="container row">
+                            <div class="col-10">
+                                <li class="wbdv-module-item list-group-item active">
+                                    Module 2 - React
+                                </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container row">
+                            <div class="col-10">
+                                <li class="wbdv-module-item list-group-item">
+                                    Module 3 - Redux
+                                </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container row">
+                            <div class="col-10">
+                                <li class="wbdv-module-item list-group-item">
+                                    Module 4 - Native
+                                </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container row">
+                            <div class="col-10">
+                                <li class="wbdv-module-item list-group-item">
+                                    Module 5 - Angular
+                                </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container row">
+                            <div class="col-10">
+                                <li class="wbdv-module-item list-group-item">
+                                    Module 6 - Node
+                                </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container row">
+                            <div class="col-10">
+                                <li class="wbdv-module-item list-group-item">
+                                    Module 7 - Mongo
+                                </li>
+                            </div>
+                            <div class="col-2">
+                                <i class="wbdv-module-item-delete-btn fa fa-times-rectangle"></i>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <i class="wbdv-module-item-add-btn fa fa-plus"></i>
+                        <br>
+                        <br>
                 </ul>
             </div>
             
-            <br/>
+            
             <div class="col-8">
+                <br>
                 <ul class="wbdv-topic-pill-list nav nav-pills">
+                    
                     <li class="wbdv-topic-pill nav-item">
                         <a class="nav-link" href="#">Topic 1</a>
                     </li>
@@ -111,7 +200,7 @@
                     <li class="wbdv-topic-pill nav-item">
                         <a class="nav-link" href="#">Topic 4</a>
                     </li>
-                    
+                    <i class="wbdv-topic-add-btn fa fa-plus"></i>
                 </ul>
             </div>
         </div>
