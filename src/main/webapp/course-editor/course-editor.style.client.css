@@ -22,14 +22,11 @@ h3{position: relative;
     font-size:40px;
 }
 
+#main_pane{
+}
 
 .wbdv-module-item-delete-btn {
-    position: relative;
-    right: 20px;
-    bottom: -15px;
-    width:200px;
-    height:40px;
-    font-size:20px;
+
 }
 
 .wbdv-topic-add-btn {
