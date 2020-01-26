@@ -6,51 +6,95 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	      rel="stylesheet"/>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	      rel="stylesheet"/>
+		rel="stylesheet"/>
 </head>
 <body>
 <h1>User Admin</h1>
+<div class="container-fluid">
+	<div class="table-responsive-sm">
+	<table class="table table-striped" id="user_table">
+		<thead class="thread-dark">
+		<tr>
+			<th></th>
+			<th scope="col">Username</th>
+			<th scope="col">Password</th>
+			<th scope="col">First</th>
+			<th scope="col">Last</th>
+			<th scope="col">Role</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+		</thead>
 
-<table class= "table" border="1">
-	<thead>
-	<tr>
-		<th>Username</th>
-		<th>Password</th>
-		<th>First</th>
-		<th>Last</th>
-		<th>Role</th>
-		<th></th>
-	</tr>
-	</thead>
-	<tbody>
-	<tr>
-		<td>alice</td>
-		<td>*****</td>
-		<td>Alice</td>
-		<td>Wonderland</td>
-		<td>Faculty</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>bob</td>
-		<td>*****</td>
-		<td>Bob</td>
-		<td>Hope</td>
-		<td>Student</td>
-		<td></td>
-	</tr>
-	<tr>
-		<td>charlie</td>
-		<td>*****</td>
-		<td>Charlie</td>
-		<td>garcia</td>
-		<td>Faculty</td>
-		<td></td>
-	</tr>
-	</tbody>
-	<tfoot>
-	
-	</tfoot>
-</table>
-</body>
+		<tbody>
+		<tr>
+			<th scope="row"></th>
+			<td><input
+				type ="text"
+				class="formControl"
+				id="username"
+				placeholder="Username"/></td>
+			<td><input
+				type ="password"
+				class="formControl"
+				id="password"
+				placeholder="******"/></td>
+			<td><input
+				type ="text"
+				class="formControl"
+				id="firstname"
+				placeholder="First Name"/></td>
+			<td><input
+				type ="text"
+				class="formControl"
+				id="last_name"
+				placeholder="Last name"></td>
+			<td><input
+				type ="text"
+				class="formControl"
+				id="role"
+				placeholder="Role"></td>
+			<td>
+				<button id="search">
+				<i class="fa fa-search"></i>
+				</button>
+			</td>
+			
+			<td> </td>
+			<td> <i class="fa fa-times"></i></td>
+			<td> </td>
+			<td> <i class="fa fa-pencil"></i></td>
+		</tr>
+		
+			<tr id="user-placeholder">
+				<th scope="row">1</th>
+				<td>alice1737</td>
+				<td>******</td>
+				<td>Alice</td>
+				<td>Wonderland</td>
+				<td>Faculty</td>
+				<td> </td>
+				<td> </td>
+				<td> <i class="fa fa-times"></i></td>
+				<td> </td>
+				<td> <i class="fa fa-pencil"></i></td>
+				
+			</tr>
+		
+		</tbody>
+		<tfoot>
+		
+		</tfoot>
+	</table>
+</div>
+</div>
+<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
+<script src="../services/user.service.client.js"></script>
+<script src="user-admin.component.client.js"></script></body>
 </html>
