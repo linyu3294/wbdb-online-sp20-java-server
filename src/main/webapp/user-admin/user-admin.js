@@ -23,7 +23,7 @@
 
     }
 
-    let currentUserId = -1
+
     const editUser = index => {
         const userId = users[index]._id;
         currentUserId = userId;
