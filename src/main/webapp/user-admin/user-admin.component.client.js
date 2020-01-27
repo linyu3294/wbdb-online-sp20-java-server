@@ -6,11 +6,11 @@
     let users=[]
     let userTable = $("#user_table")
     let userList = $("#user-item")
-    let usernameFld = $("#username")
-    let passwordFld = $("#password")
-    let firstnameFld = $("#firstname")
-    let lastnameFld = $("#lastname")
-    let roleFld = $("#role")
+    let globalUsernameFld = $("#username")
+    let globalPasswordFld = $("#password")
+    let globalFirstnameFld = $("#firstname")
+    let globalLastnameFld = $("#lastname")
+    let globalRoleFld = $("#role")
 
 
 
@@ -41,35 +41,25 @@
         console.log (users[index].role)
 
 
+        let currUsernameFld = $("#username_" + index)
+        let currPasswordFld = $("#password_" + index)
+        let currFirstnameFld = $("#firstname_" + index)
+        let currLastnameFld = $("#lastname_" + index)
+        let roleFld = $("#role_" +index)
+
+        currUsernameFld.html('<input value="' + users[index].username + '"/>')
+        currPasswordFld.html('<input value="' + users[index].password + '"/>')
+        currFirstnameFld.html('<input value="' + users[index].firstname + '"/>')
+        currLastnameFld.html('<input value="' + users[index].lastname + '"/>')
+        roleFld.html('<input value="' + users[index].role + '"/>')
 
         userService.findUserById(userId)
             .then(user => {
                 console.log(user)
-                usernameFld.val(user.username)
+                currUsernameFld.val(user.username)
             })
 
-
-        userTable.append(
-        '<tr id="user-item">' +
-        '<td>' + index + '</td>' +
-
-        '<td> <input value="' + users[index].username + '"/> </td>'+
-        '<td> <input value="' + users[index].password + '"/> </td>'+
-        '<td> <input value="' + users[index].firstname + '"/> </td>'+
-        '<td> <input value="' + users[index].lastname + '"/> </td>'+
-        '<td> <input value="' + users[index].role + '"/> </td>'+
-
-        '<td>' + '</td>' +
-        '<td>' + '</td>' +
-        '<td> <button id="delete_' + index + '"> <i class="fa fa-times"></i> </button> </td>' +
-        '<td>' + '</td>' +
-        '<td> <button id="edit_' + index + '"class="> <i fa fa-pencil"></i> </button></td>' +
-        '</tr>'
-        )
-        userService.deleteUser(userId)
-
         userList.append()
-
     }
 
 
@@ -89,11 +79,11 @@
             userTable.append(
                 '<tr id="user-item">' +
                 '<td>' + i + '</td>' +
-                '<td>' + users[i].username  + '</td>' +
-                '<td>' + users[i].password  + '</td>' +
-                '<td>' + users[i].firstname + '</td>' +
-                '<td>' + users[i].lastname  + '</td>' +
-                '<td>' + users[i].role      + '</td>' +
+                '<td id="username_' + i + '">' +  users[i].username  + '</td>' +
+                '<td id="password_' + i + '">' +  users[i].password  + '</td>' +
+                '<td id="firstname_'+ i + '">' +  users[i].firstname + '</td>' +
+                '<td id="lastname_' + i + '">' +  users[i].lastname  + '</td>' +
+                '<td id="role_'     + i + '">' +  users[i].role      + '</td>' +
                 '<td>' + '</td>' +
                 '<td>' + '</td>' +
                 '<td> <button id="delete_' + i + '"> <i class="fa fa-times"></i> </button> </td>' +
@@ -114,11 +104,12 @@
     }
 
     const updateUser = () => {
-        const username = usernameFld.val()
-        const password = passwordFld.val()
-        const firstname = firstnameFld.val()
-        const lastname = lastnameFld.val()
-        usernameFld.val("")
+        const username = globalUsernameFld.val()
+        const password = globalPasswordFld.val()
+        const firstname = globalFirstnameFld.val()
+        const lastname = globalLastnameFld.val()
+        const role = globalRoleFld.val()
+        globalUsernameFld.val("")
 
         userService.updateUser(currentUserId, {username: username,
                                                     password: password,
@@ -135,11 +126,11 @@
 
 
     const createUser = () => {
-        const username = usernameFld.val()
-        const password = passwordFld.val()
-        const firstname = firstnameFld.val()
-        const lastname = lastnameFld.val()
-        const role = roleFld.val()
+        const username = globalUsernameFld.val()
+        const password = globalPasswordFld.val()
+        const firstname = globalFirstnameFld.val()
+        const lastname = globalLastnameFld.val()
+        const role = globalRoleFld.val()
         console.log(userList);
         userService.createUser({username: username,
                                      password: password,
@@ -149,7 +140,7 @@
         .then(newUser => {
             findAllUsers()
         })
-        clearAllFlds()
+        clearAllGlobalFlds()
     }
     searchbtn.click(createUser)
 
@@ -166,12 +157,12 @@
     findAllUsers()
 
 
-    const clearAllFlds = ()=> {
-        usernameFld.val("")
-        firstnameFld.val("")
-        lastnameFld.val("")
-        passwordFld.val("")
-        roleFld.val("")
+    const clearAllGlobalFlds = ()=> {
+        globalUsernameFld.val("")
+        globalFirstnameFld.val("")
+        globalLastnameFld.val("")
+        globalPasswordFld.val("")
+        globalRoleFld.val("")
     }
 
 })();
