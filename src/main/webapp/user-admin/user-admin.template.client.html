@@ -6,70 +6,72 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 	      rel="stylesheet"/>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		rel="stylesheet"/>
+	      rel="stylesheet"/>
 </head>
 <body>
 <h1>User Admin</h1>
 <div class="container-fluid">
 	<div class="table-responsive-sm">
-	<table class="table table-striped" id="user_table">
-		<thead class="thread-dark">
-		<tr>
-			<th></th>
-			<th scope="col">Username</th>
-			<th scope="col">Password</th>
-			<th scope="col">First</th>
-			<th scope="col">Last</th>
-			<th scope="col">Role</th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-		</thead>
-
-		<tbody>
-		<tr>
-			<th scope="row"></th>
-			<td><input
-				type ="text"
-				class="formControl"
-				id="username"
-				placeholder="Username"/></td>
-			<td><input
-				type ="password"
-				class="formControl"
-				id="password"
-				placeholder="******"/></td>
-			<td><input
-				type ="text"
-				class="formControl"
-				id="firstname"
-				placeholder="First Name"/></td>
-			<td><input
-				type ="text"
-				class="formControl"
-				id="last_name"
-				placeholder="Last name"></td>
-			<td><input
-				type ="text"
-				class="formControl"
-				id="role"
-				placeholder="Role"></td>
-			<td>
-				<button id="search">
-				<i class="fa fa-search"></i>
-				</button>
-			</td>
+		<table class="table table-striped" >
+			<thead class="thread-dark">
+			<tr>
+				<th></th>
+				<th scope="col">Username</th>
+				<th scope="col">Password</th>
+				<th scope="col">First</th>
+				<th scope="col">Last</th>
+				<th scope="col">Role</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+			</thead>
 			
-			<td> </td>
-			<td> <i class="fa fa-times"></i></td>
-			<td> </td>
-			<td> <i class="fa fa-pencil"></i></td>
-		</tr>
 		
-			<tr id="user-placeholder">
+			<tr>
+				<th scope="row"></th>
+				<td><input
+						type ="text"
+						class="formControl"
+						id="username"
+						placeholder="Username"/></td>
+				<td><input
+						type ="password"
+						class="formControl"
+						id="password"
+						placeholder="******"/></td>
+				<td><input
+						type ="text"
+						class="formControl"
+						id="firstname"
+						placeholder="First Name"/></td>
+				<td><input
+						type ="text"
+						class="formControl"
+						id="lastname"
+						placeholder="Last name"></td>
+				<td><input
+						type ="text"
+						class="formControl"
+						id="role"
+						placeholder="Role"></td>
+				<td>
+					<button id="search">
+						<i class="fa fa-search"></i>
+					</button>
+				</td>
+				
+				<td> </td>
+				<td> <i class="fa fa-times"></i></td>
+				<td> </td>
+				<td> <i class="fa fa-pencil"></i></td>
+			</tr>
+			
+			<tbody id="user_table">
+			
+			<tr id="user-item">
 				<th scope="row">1</th>
 				<td>alice1737</td>
 				<td>******</td>
@@ -81,15 +83,15 @@
 				<td> <i class="fa fa-times"></i></td>
 				<td> </td>
 				<td> <i class="fa fa-pencil"></i></td>
-				
 			</tr>
-		
-		</tbody>
-		<tfoot>
-		
-		</tfoot>
-	</table>
-</div>
+			
+			</tbody>
+			
+			<tfoot>
+			
+			</tfoot>
+		</table>
+	</div>
 </div>
 <script
 		src="https://code.jquery.com/jquery-3.4.1.min.js"
