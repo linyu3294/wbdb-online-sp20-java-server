@@ -33,13 +33,11 @@
         const userId = users[index]._id;
         currentUserId = userId;
 
-
         console.log (users[index].username)
         console.log (users[index].password)
         console.log (users[index].firstname)
         console.log (users[index].lastname)
         console.log (users[index].role)
-
 
         let currUsernameFld = $("#username_" + index)
         let currPasswordFld = $("#password_" + index)
@@ -47,11 +45,11 @@
         let currLastnameFld = $("#lastname_" + index)
         let roleFld = $("#role_" +index)
 
-        currUsernameFld.html('<input value="' + users[index].username + '"/>')
-        currPasswordFld.html('<input value="' + users[index].password + '"/>')
-        currFirstnameFld.html('<input value="' + users[index].firstname + '"/>')
-        currLastnameFld.html('<input value="' + users[index].lastname + '"/>')
-        roleFld.html('<input value="' + users[index].role + '"/>')
+        currUsernameFld.html('<input id="username_input_' + index + '" value="' + users[index].username + '"/>')
+        currPasswordFld.html('<input id="password_input_' + index + '"  value="' + users[index].password + '"/>')
+        currFirstnameFld.html('<input id="firstname_input_' + index + '"  value="' + users[index].firstname + '"/>')
+        currLastnameFld.html('<input id="lastname_input_' + index + '"  value="' + users[index].lastname + '"/>')
+        roleFld.html('<input id="role_input_' + index + '"  value="' + users[index].role + '"/>')
 
         userService.findUserById(userId)
             .then(user => {
@@ -62,20 +60,30 @@
         userList.append()
     }
 
+    const updateUser = index => {
+        const userId = users[index]._id
+        let currUsernameFld = $("#username_input_" + index)
+        let currPasswordFld = $("#password_input_" + index)
+        let currFirstname = $("#firstname_input_" + index)
+        let currLastName = $("#lastname_input_" + index)
+        let currRole = $("#role_input_" + index)
+
+        console.log(currUsernameFld.val())
+        // userService.updateUser(userId, {username: currUsernameFld.val(),
+        //                                      password: currPasswordFld.val(),
+        //                                      firstname:currFirstname.val(),
+        //                                      lastname:currLastName.val(),
+        //                                      role:currRole.val()
+        // })
+
+        renderUsers()
+    }
+
 
     const renderUsers = () => {
         userTable.empty()
 
-        let emptyCol = $('<td></td>')
         for (let i =0; i<users.length; i++){
-            //Renders the row that appears in browswer
-            console.log(users[i].username)
-            console.log(users[i].password)
-            console.log(users[i].firstname)
-            console.log(users[i].lastname)
-            console.log(users[i].role)
-
-
             userTable.append(
                 '<tr id="user-item">' +
                 '<td>' + i + '</td>' +
@@ -88,7 +96,9 @@
                 '<td>' + '</td>' +
                 '<td> <button id="delete_' + i + '"> <i class="fa fa-times"></i> </button> </td>' +
                 '<td>' + '</td>' +
-                '<td> <button id="edit_' + i + '"class="> <i fa fa-pencil"></i> </button></td>' +
+                '<td> <button id="edit_' + i + '"> <i   class="> <i fa fa-pencil"></i> </button></td>' +
+                '<td>' + '</td>' +
+                '<td> <button id="update_' + i + '"> <i   class="> <i fa fa-upload"></i> </button></td>' +
                 '</tr>'
             )
 
@@ -98,31 +108,15 @@
             let editBtn = $('#edit_'+i)
             editBtn.click(() => {editUser(i)})
 
+            let updateBt  = $('#update_'+i)
+            updateBt.click(() => {updateUser(i)})
 
             userList.append()
         }
     }
 
-    const updateUser = () => {
-        const username = globalUsernameFld.val()
-        const password = globalPasswordFld.val()
-        const firstname = globalFirstnameFld.val()
-        const lastname = globalLastnameFld.val()
-        const role = globalRoleFld.val()
-        globalUsernameFld.val("")
 
-        userService.updateUser(currentUserId, {username: username,
-                                                    password: password,
-                                                    firstname:firstname,
-                                                    lastname:lastname,
-                                                    role:role})
-            .then(newUser => {
-                // users.push(newUser)
-                // renderUsers()
-                findAllUsers()
-            })
 
-    }
 
 
     const createUser = () => {
@@ -131,7 +125,6 @@
         const firstname = globalFirstnameFld.val()
         const lastname = globalLastnameFld.val()
         const role = globalRoleFld.val()
-        console.log(userList);
         userService.createUser({username: username,
                                      password: password,
                                      firstname:firstname,
@@ -150,7 +143,6 @@
         userService.findAllUsers()
             .then((theUsers) => {
                 users = theUsers
-                console.log(users)
                 renderUsers()
             })
     }
