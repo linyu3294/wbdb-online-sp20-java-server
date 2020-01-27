@@ -17,9 +17,21 @@
     console.log("hello DOM")
 
 
+    const deleteUser = (index) => {
+        const userId = users[index]._id;
+        userService.deleteUser(userId)
+            .then(response => {
+                users.splice(index, 1)
+                renderUsers()
+                // findAllUsers()
+            })
+
+    }
+
     const renderUsers = () => {
         userTable.empty()
 
+        let emptyCol = $('<td></td>')
         for (let i =0; i<users.length; i++){
             //Renders the row that appears in browswer
             console.log(users[i].username)
@@ -38,11 +50,17 @@
                 '<td>' + users[i].role      + '</td>' +
                 '<td>' + '</td>' +
                 '<td>' + '</td>' +
-                '<td> <i class="fa fa-times"></i> </td>' +
+                '<td> <button id="delete_' + i + '"> <i class="fa fa-times"></i> </button> </td>' +
                 '<td>' + '</td>' +
-                '<td> <i class="fa fa-pencils"></i> </td>' +
+                '<td> <button id="edit_' + i + '"class="> <i fa fa-pencil"></i> </button></td>' +
                 '</tr>'
             )
+            let deleteBtn = $('#delete_'+i)
+            let editBtn = $('#edit_'+i)
+            deleteBtn.click(() => {
+                deleteUser(i)
+            })
+
             userList.append()
         }
     }
@@ -64,8 +82,10 @@
         .then(newUser => {
             findAllUsers()
         })
+        clearAllFlds()
     }
     searchbtn.click(createUser)
+
 
 
     const findAllUsers = () => {
@@ -79,5 +99,12 @@
     findAllUsers()
 
 
+    const clearAllFlds = ()=> {
+        usernameFld.val("")
+        firstnameFld.val("")
+        lastnameFld.val("")
+        passwordFld.val("")
+        roleFld.val("")
+    }
 
 })();
