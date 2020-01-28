@@ -9,8 +9,9 @@
 	      rel="stylesheet"/>
 </head>
 <body>
-<h1>User Admin</h1>
 <div class="container-fluid">
+<h1>User Admin</h1>
+
 	<div class="table-responsive-sm">
 		<table class="table table-striped" >
 			<thead class="thread-dark">
@@ -21,6 +22,8 @@
 				<th scope="col">First</th>
 				<th scope="col">Last</th>
 				<th scope="col">Role</th>
+				<th></th>
+				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
@@ -62,20 +65,26 @@
 					<option value="Faculty">
 						Faculty
 					</option>
+					<option value="Admin">
+						Admin
+					</option>
 				</select>
 				</td>
+				<td> </td>
+				<td> </td>
 				<td>
-					<button id="search">
+					<button id="global_search">
 						<i class="fa fa-search"></i>
 					</button>
 				</td>
-				
 				<td> </td>
-				<td> <button> <i class="fa fa-times"> </i> </button> </td>
 				<td> </td>
-				<td> <button> <i class="fa fa-pencil"> </i> </button> </td>
 				<td> </td>
-				<td> <button> <i class="> <i fa fa-upload"></i> </button></td>
+				<td>
+					<button id="global_upload">
+						<i class="fa fa-upload"></i>
+					</button>
+				</td>
 			</tr>
 			
 			<tbody id="user_table">
@@ -92,6 +101,8 @@
 				<td> <button> <i class="fa fa-times"> </i> </button> </td>
 				<td> </td>
 				<td> <button> <i class="fa fa-pencil"> </i> </button> </td>
+				<td> </td>
+				<td> <button> <i class="> <i fa fa-upload"></i> </button></td>
 			</tr>
 			
 			</tbody>
@@ -107,5 +118,5 @@
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 		crossorigin="anonymous"></script>
 <script src="../services/user.service.client.js"></script>
-<script src="user-admin.component.client.js"></script></body>
+<script src="user-admin.controller.client.js"></script></body>
 </html>

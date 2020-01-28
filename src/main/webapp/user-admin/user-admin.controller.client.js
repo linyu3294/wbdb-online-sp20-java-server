@@ -1,6 +1,7 @@
 
 (function () {
-    let searchbtn = $("#search")
+    let globalSearchBtn = $("#global_search")
+    let globalUploadBtn = $("#global_upload")
     let userService = new AdminUserServiceClient()
 
     let users=[]
@@ -11,7 +12,6 @@
     let globalFirstnameFld = $("#firstname")
     let globalLastnameFld = $("#lastname")
     let globalRoleFld = $("#role")
-
 
 
     console.log("hello DOM")
@@ -30,15 +30,6 @@
 
 
     const editUser = index => {
-        const userId = users[index]._id;
-        currentUserId = userId;
-
-        console.log (users[index].username)
-        console.log (users[index].password)
-        console.log (users[index].firstname)
-        console.log (users[index].lastname)
-        console.log (users[index].role)
-
         let currUsernameFld = $("#username_" + index)
         let currPasswordFld = $("#password_" + index)
         let currFirstnameFld = $("#firstname_" + index)
@@ -49,16 +40,15 @@
         currPasswordFld.html('<input id="password_input_' + index + '"  value="' + users[index].password + '"/>')
         currFirstnameFld.html('<input id="firstname_input_' + index + '"  value="' + users[index].firstname + '"/>')
         currLastnameFld.html('<input id="lastname_input_' + index + '"  value="' + users[index].lastname + '"/>')
-        roleFld.html('<input id="role_input_' + index + '"  value="' + users[index].role + '"/>')
-
-        userService.findUserById(userId)
-            .then(user => {
-                console.log(user)
-                currUsernameFld.val(user.username)
-            })
-
+        roleFld.html('<select id="role_input_' + index + '"  value="' + users[index].role + '">'
+                     + '<option value="Student"> Student </option>'
+                     + '<option value="Faculty"> Faculty </option>'
+                     + '<option value="Admin">    Admin  </option>'
+                     + '</select>')
         userList.append()
     }
+
+
 
     const updateUser = index => {
         const userId = users[index]._id
@@ -69,15 +59,21 @@
         let currRole = $("#role_input_" + index)
 
         console.log(currUsernameFld.val())
-        // userService.updateUser(userId, {username: currUsernameFld.val(),
-        //                                      password: currPasswordFld.val(),
-        //                                      firstname:currFirstname.val(),
-        //                                      lastname:currLastName.val(),
-        //                                      role:currRole.val()
-        // })
-
+        userService.updateUser(userId, {username: currUsernameFld.val(),
+                                             password: currPasswordFld.val(),
+                                             firstname:currFirstname.val(),
+                                             lastname:currLastName.val(),
+                                             role:currRole.val()
+        })
+        .then(newUser => {
+            // users.push(newUser)
+            // renderUsers()
+            findAllUsers()
+        })
         renderUsers()
+        clearAllGlobalFlds()
     }
+
 
 
     const renderUsers = () => {
@@ -88,7 +84,7 @@
                 '<tr id="user-item">' +
                 '<td>' + i + '</td>' +
                 '<td id="username_' + i + '">' +  users[i].username  + '</td>' +
-                '<td id="password_' + i + '">' +  users[i].password  + '</td>' +
+                '<td id="password_' + i + '">' + ""  + '</td>' +
                 '<td id="firstname_'+ i + '">' +  users[i].firstname + '</td>' +
                 '<td id="lastname_' + i + '">' +  users[i].lastname  + '</td>' +
                 '<td id="role_'     + i + '">' +  users[i].role      + '</td>' +
@@ -117,8 +113,6 @@
 
 
 
-
-
     const createUser = () => {
         const username = globalUsernameFld.val()
         const password = globalPasswordFld.val()
@@ -135,7 +129,7 @@
         })
         clearAllGlobalFlds()
     }
-    searchbtn.click(createUser)
+    globalUploadBtn.click(createUser)
 
 
 
