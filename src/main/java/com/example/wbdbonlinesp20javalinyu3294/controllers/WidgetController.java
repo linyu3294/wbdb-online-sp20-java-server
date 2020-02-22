@@ -19,24 +19,24 @@ public class WidgetController {
     @PutMapping("/api/widgets/{wid}")
     public int updateWidget(@PathVariable("wid") String widgetId,
                             @RequestBody Widget widget) {
+        System.out.println("deleting widget :" + widgetId);
         return service.updateWidget(widgetId, widget);
     }
 
     @DeleteMapping("/api/widgets/{wid}")
     public int deleteWidget(@PathVariable("wid") String widgetId) {
-        System.out.println("deleting");
+        System.out.println("deleting widget :" + widgetId);
         return service.deleteWidget(widgetId);
     }
 
     @PostMapping("/api/widgets")
     public Widget createWidget(@RequestBody Widget newWidget) {
-        System.out.println("creating a widget");
+        System.out.println("deleting widget :" + newWidget.getId());
         return service.createWidget(newWidget);
     }
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {
-
         return service.findAllWidgets();
     }
 

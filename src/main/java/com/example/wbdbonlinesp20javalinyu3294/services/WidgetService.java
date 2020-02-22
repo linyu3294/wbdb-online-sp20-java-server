@@ -56,7 +56,6 @@ public class WidgetService {
     }
 
     public int updateWidget(String widgetId, Widget updateWidget) {
-        System.out.println("helloworld");
         for(int i=0; i<widgets.size(); i++) {
             Widget widget = widgets.get(i);
             if(widget.getId().equals(widgetId)) {
