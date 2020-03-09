@@ -1,68 +1,65 @@
 package com.example.wbdbonlinesp20javalinyu3294.services;
 
+import com.example.wbdbonlinesp20javalinyu3294.models.Topic;
 import com.example.wbdbonlinesp20javalinyu3294.models.Widget;
-
+import com.example.wbdbonlinesp20javalinyu3294.repositories.TopicRepository;
+import com.example.wbdbonlinesp20javalinyu3294.repositories.WidgetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
+@CrossOrigin(origins = "*")
 public class WidgetService {
+    @Autowired
+    WidgetRepository widgetRepository;
 
-    List<Widget> widgets = new ArrayList<Widget>();
+    @Autowired
+    TopicRepository topicRepository;
 
-    {
-        Widget w1 = new Widget();
-        Widget w2 = new Widget();
-        w1.setTitle("Widget 1");
-        w1.setId("123");
-        w1.setType("HEADING");
-        w1.setText("Welcome to WebDev!");
-        w1.setSize(2);
-        w1.setTopicId("111");
-        w2.setTitle("Widget 2");
-        w2.setId("234");
-        w2.setType("PARAGRAPH");
-        w2.setTopicId("222");
-        widgets.add(w1);
-        widgets.add(w2);
+    public Widget createWidgetForTopic(Integer topicId, Widget newWidget) {
+        Topic topic = topicRepository.findById(topicId).get();
+        newWidget.setTopic(topic);
+        topic.addWidgets(newWidget);
+        return widgetRepository.save(newWidget);
+
     }
 
-    public int deleteWidget(String widgetId) {
-        widgets = widgets.stream()
-                .filter(w -> !w.getId().equals(widgetId)).collect(Collectors.toList());
+    public int updateWidget(Integer widgetId, Widget updateWidget) {
+        Widget oldWidget = widgetRepository.findById(widgetId).get();
+        oldWidget.setTitle(updateWidget.getTitle());
+        oldWidget.setType(updateWidget.getType());
+        oldWidget.setOrder(updateWidget.getOrder());
+        oldWidget.setText(updateWidget.getText());
+        oldWidget.setURL(updateWidget.getURL());
+        oldWidget.setWidth(updateWidget.getWidth());
+        oldWidget.setHeight(updateWidget.getHeight());
+        oldWidget.setCssClass(updateWidget.getCssClass());
+        oldWidget.setTitle(updateWidget.getTitle());
+        oldWidget.setValue(updateWidget.getValue());
+        widgetRepository.save(oldWidget);
         return 1;
     }
 
-    public Widget createWidget(Widget newWidget) {
-        widgets.add(newWidget);
-        return newWidget;
+    public int deleteWidget(Integer widgetId) {
+        widgetRepository.deleteById(widgetId);
+        return 1;
     }
 
     public List<Widget> findAllWidgets() {
-        return widgets;
+        return (List<Widget>)widgetRepository.findAll();
     }
 
-    public List<Widget> findWidgetsForTopic(String topicId) {
-        List<Widget> resultWidgets = new ArrayList<Widget>();
-        for(Widget w: widgets) {
-            if(topicId.equals(w.getTopicId())) {
-                resultWidgets.add(w);
-            }
-        }
-        return resultWidgets;
+    public List<Widget> findWidgetsForTopic(Integer topicId) {
+        return widgetRepository.findWidgetForTopic(topicId);
     }
 
-    public int updateWidget(String widgetId, Widget updateWidget) {
-        for(int i=0; i<widgets.size(); i++) {
-            Widget widget = widgets.get(i);
-            if(widget.getId().equals(widgetId)) {
-                widgets.set(i, updateWidget);
-                return 1;
-            }
-        }
-        return 0;
+    public Widget findWidgetById(Integer wid){
+        return widgetRepository.findById(wid).get();
     }
+
+
 }
+
