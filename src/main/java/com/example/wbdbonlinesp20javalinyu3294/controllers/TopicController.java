@@ -44,7 +44,6 @@ public class TopicController {
 
     @GetMapping("/api/lessons/{lid}/topics")
     public List<Topic> findTopicsForLesson(@PathVariable("lid") String lessonId) {
-        System.out.println("Finding Topics for LessonId = " + lessonId);
         return tService.findTopicsForLesson(lessonId);
 
     }

@@ -30,7 +30,8 @@ public class Topic {
 
     public List<Widget> getWidgets() {return this.widgets;}
     public void setWidgets(List<Widget> widgets) {this.widgets = widgets;}
-    public void addWidgets(Widget widget) {this.widgets.add(widget);}
+    public void addWidget(Widget widget) {this.widgets.add(widget);}
+    public void removeWidget(Widget widget) {this.widgets.remove(widget);}
 
     public void setLessonId (String lessonId) { this.lessonId = lessonId;}
     public String getLessonId () {return this.lessonId;}

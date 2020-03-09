@@ -20,13 +20,14 @@ public class WidgetController {
     @PostMapping("/api/topics/{topicId}/widgets")
     public Widget createWidget(@PathVariable ("topicId") Integer topicId,
                                @RequestBody Widget newWidget) {
-        System.out.println(topicId);
         return wService.createWidgetForTopic(topicId, newWidget);
     }
 
     @PutMapping("/api/widgets/{wid}")
     public int updateWidget(@PathVariable("wid") Integer widgetId,
                             @RequestBody Widget widget) {
+        System.out.println("hello");
+        System.out.println("Testing Widget Update" + widget.getTextSize());
         return wService.updateWidget(widgetId, widget);
     }
 
@@ -34,7 +35,6 @@ public class WidgetController {
     public int deleteWidget(@PathVariable("wid") Integer widgetId) {
         return wService.deleteWidget(widgetId);
     }
-
 
     @GetMapping("/api/widgets")
     public List<Widget> findAllWidgets() {return wService.findAllWidgets();

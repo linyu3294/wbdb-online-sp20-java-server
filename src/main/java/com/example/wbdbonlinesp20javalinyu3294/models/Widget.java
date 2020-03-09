@@ -21,11 +21,12 @@ public class Widget {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String type = "HEADING";
+    private String type;
     private int widget_order;
     private String text = "New Widget";
     private String url;
     private String title = "New Widget";
+    private Integer textSize =4;
     private int width;
     private int height;
     private String cssClass;
@@ -36,13 +37,13 @@ public class Widget {
     @JsonIgnore
     private Topic topic;
 
-    private int getTopicId () {return this.topic.getId();}
+    public int getTopicId () {return this.topic.getId();}
 
-    private Topic getTopic() {return this.topic;}
+    public Topic getTopic() {return this.topic;}
     public void setTopic(Topic topic) {this.topic = topic;}
 
-    private String getName() {return this.name;}
-    private void setName(String name) {this.name = name;}
+    public String getName() {return this.name;}
+    public void setName(String name) {this.name = name;}
 
     //Needed in order to expose the id field to service url
     public Integer getId() {return id;}
@@ -56,6 +57,9 @@ public class Widget {
 
     public String getText() { return text; }
     public void setText(String text) { this.text = text; }
+
+    public Integer getTextSize() {return this.textSize;}
+    public void setTextSize(Integer textSize) {this.textSize = textSize;}
 
     public String getURL() { return url; }
     public void setURL(String text) { this.url = url; }

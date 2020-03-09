@@ -22,9 +22,8 @@ public class WidgetService {
     public Widget createWidgetForTopic(Integer topicId, Widget newWidget) {
         Topic topic = topicRepository.findById(topicId).get();
         newWidget.setTopic(topic);
-        topic.addWidgets(newWidget);
+        topic.addWidget(newWidget);
         return widgetRepository.save(newWidget);
-
     }
 
     public int updateWidget(Integer widgetId, Widget updateWidget) {
@@ -33,17 +32,20 @@ public class WidgetService {
         oldWidget.setType(updateWidget.getType());
         oldWidget.setOrder(updateWidget.getOrder());
         oldWidget.setText(updateWidget.getText());
-        oldWidget.setURL(updateWidget.getURL());
-        oldWidget.setWidth(updateWidget.getWidth());
-        oldWidget.setHeight(updateWidget.getHeight());
-        oldWidget.setCssClass(updateWidget.getCssClass());
-        oldWidget.setTitle(updateWidget.getTitle());
-        oldWidget.setValue(updateWidget.getValue());
+        oldWidget.setTextSize(updateWidget.getTextSize());
+//        oldWidget.setURL(updateWidget.getURL());
+//        oldWidget.setWidth(updateWidget.getWidth());
+//        oldWidget.setHeight(updateWidget.getHeight());
+//        oldWidget.setCssClass(updateWidget.getCssClass());
+//        oldWidget.setValue(updateWidget.getValue());
         widgetRepository.save(oldWidget);
         return 1;
     }
 
     public int deleteWidget(Integer widgetId) {
+        Widget deleteWidget = widgetRepository.findById(widgetId).get();
+        Topic topic = deleteWidget.getTopic();
+        topic.removeWidget(deleteWidget);
         widgetRepository.deleteById(widgetId);
         return 1;
     }
