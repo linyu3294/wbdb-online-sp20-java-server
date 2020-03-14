@@ -20,10 +20,10 @@ public class Widget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    private String name = "New Widget";
     private String type;
     private int widget_order;
-    private String text = "New Widget";
+    private String text = "New Widget Text";
     private String url;
     private String title = "New Widget";
     private Integer textSize =4;
@@ -62,7 +62,7 @@ public class Widget {
     public void setTextSize(Integer textSize) {this.textSize = textSize;}
 
     public String getURL() { return url; }
-    public void setURL(String text) { this.url = url; }
+    public void setURL(String url) { this.url = url; }
 
     public int getWidth() { return width; }
     public void setWidth(int width) { this.width = width; }

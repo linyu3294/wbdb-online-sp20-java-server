@@ -23,9 +23,11 @@ public class WidgetController {
         return wService.createWidgetForTopic(topicId, newWidget);
     }
 
+
     @PutMapping("/api/widgets/{wid}")
     public int updateWidget(@PathVariable("wid") Integer widgetId,
                             @RequestBody Widget widget) {
+        System.out.println("WidgetID hitting service" + widget);
         System.out.println("hello");
         System.out.println("Testing Widget Update" + widget.getTextSize());
         return wService.updateWidget(widgetId, widget);

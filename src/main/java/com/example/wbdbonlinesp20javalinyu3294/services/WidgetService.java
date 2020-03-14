@@ -33,6 +33,8 @@ public class WidgetService {
         oldWidget.setOrder(updateWidget.getOrder());
         oldWidget.setText(updateWidget.getText());
         oldWidget.setTextSize(updateWidget.getTextSize());
+        oldWidget.setName(updateWidget.getName());
+        oldWidget.setURL(updateWidget.getURL());
 //        oldWidget.setURL(updateWidget.getURL());
 //        oldWidget.setWidth(updateWidget.getWidth());
 //        oldWidget.setHeight(updateWidget.getHeight());
